@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview App</title>
+  </head>
+  <body>
+    <header class="heading"></header>
+    <main class="dashboard">
+      <section class="dashboard__head">
+        <div class="dashboard__head--description description">
+          <h2 class="description__title">Overview</h2>
+          <p class="description__text">An aggregated view of all your data.</p>
+        </div>
+        <div class="dashboard__head--filter filter">
+          <div class="custom-select-container">
+            <img src="./assets/images/calendar.svg" class="icon" />
+            <select id="timeFilter" class="filter__select">
+              <option value="today">Today</option>
+              <option value="3days">Last 3 Days</option>
+              <option value="7days" selected>Last 7 Days</option>
+              <option value="month">Last Month</option>
+            </select>
+          </div>
+          <div class="filter__buttons">
+            <button id="applyBtn" class="filter__buttons--btn">
+              <img src="./assets/images/done.svg" alt="done" />
+              <span>Apply</span>
+            </button>
+            <button
+              id="clearBtn"
+              class="filter__buttons--btn filter__button--clear"
+            >
+              <img src="./assets/images/delete.svg" alt="delete" />
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="dashboard__overview">
+        <div class="dashboard__overview--summary summary">
+          <div class="summary__item">
+            <div class="summary__icon">
+              <img
+                class="summary__icon--item"
+                src="./assets/images/email.svg"
+                alt="email"
+              />
+            </div>
+            <div class="summary__details">
+              <p class="summary__title">Emails</p>
+              <div class="summary__details--stats stats">
+                <p id="emails" class="stats__count">30</p>
+                <div class="stats__percentage--up arrow-box">
+                  <img
+                    class="arrow-box__icon"
+                    src="./assets/images/arrow-up.svg"
+                    alt="arrow up"
+                  />
+                  <span class="arrow-box__text">13%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="summary__item">
+            <div class="summary__icon">
+              <img
+                class="summary__icon--item"
+                src="./assets/images/sms.svg"
+                alt="sms"
+              />
+            </div>
+            <div class="summary__details">
+              <p class="summary__title">SMS</p>
+              <div class="summary__details--stats stats">
+                <p id="sms" class="stats__count">1243</p>
+                <div class="stats__percentage--down arrow-box">
+                  <img
+                    class="arrow-box__icon"
+                    src="./assets/images/arrow-down.svg"
+                    alt="arrow down"
+                  />
+                  <span class="arrow-box__text">13%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="summary__item">
+            <div class="summary__icon">
+              <img
+                class="summary__icon--item"
+                src="./assets/images/print.svg"
+                alt="print"
+              />
+            </div>
+            <div class="summary__details">
+              <p class="summary__title">Print</p>
+              <div class="summary__details--stat stats">
+                <p id="print" class="stats__count">6457</p>
+                <div class="stats__percentage--up arrow-box">
+                  <img
+                    class="arrow-box__icon"
+                    src="./assets/images/arrow-up.svg"
+                    alt="arrow up"
+                  />
+                  <span class="arrow-box__text">13%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard__overview--status status">
+          <div class="status__box">
+            <h3 class="status__box--title">
+              Status
+              <span id="statusTime" class="status__title--small"
+                >in last 7 days</span
+              >
+            </h3>
+            <div class="status__box--total total">
+              <h1 class="total--count">45034</h1>
+              <span class="total--desc">Total records</span>
+            </div>
+          </div>
+          <div class="status__chart">
+            <canvas id="DonutChart"></canvas>
+          </div>
+          <div class="status__details">
+            <div class="status__details--avarage avarage">
+              <div class="avarage__container">
+                <h4 class="avarage__container--title">Running</h4>
+                <div class="avarage__container--progress progress">
+                  <div class="progress__point progress__point--running"></div>
+                  <div class="progress__details">
+                    <span id="runningCount" class="progress__details--count"
+                      >3299</span
+                    >
+                    <span
+                      id="runningPercentage"
+                      class="progress__details--small"
+                      >(40%)</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="avarage__container">
+                <h4 class="avarage__container--title">Success</h4>
+                <div
+                  class="avarage__container--progress progress progress--success"
+                >
+                  <div class="progress__point progress__point--success"></div>
+                  <div class="progress__details">
+                    <span id="successCount" class="progress__details--count"
+                      >456</span
+                    >
+                    <span
+                      id="successPercentage"
+                      class="progress__details--small"
+                      >(35%)</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status__details--avarage avarage">
+              <div class="avarage__container">
+                <h4 class="avarage__container--title">Scheduled</h4>
+                <div class="avarage__container--progress progress">
+                  <div class="progress__point progress__point--scheduled"></div>
+                  <div class="progress__details">
+                    <span id="scheduledCount" class="progress__details--count"
+                      >32</span
+                    >
+                    <span
+                      id="scheduledPercentage"
+                      class="progress__details--small"
+                      >(4%)</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="avarage__container">
+                <h4 class="avarage__container--title">Error</h4>
+                <div class="avarage__container--progress progress">
+                  <div class="progress__point progress__point--error"></div>
+                  <div class="progress__details">
+                    <span id="errorCount" class="progress__details--count"
+                      >3</span
+                    >
+                    <span id="errorPercentage" class="progress__details--small"
+                      >(1%)</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard__overview--batches batches">
+          <h3 class="batches__title">Batches</h3>
+          <table class="batches__table">
+            <thead class="batches__head">
+              <tr class="batches__row">
+                <th class="batches__header">Name</th>
+                <th class="batches__header">ID</th>
+                <th class="batches__header">Status</th>
+                <th class="batches__header">Processed</th>
+                <th class="batches__header">Total</th>
+              </tr>
+            </thead>
+            <tbody class="batches__body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="./js/chart.js"></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

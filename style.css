@@ -1,0 +1,29 @@
+@import url("./assets/styles/batches-table.css");
+@import url("./assets/styles/general-heading.css");
+@import url("./assets/styles/status.css");
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f5f6;
+}
+
+canvas {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+.heading {
+  background-color: #fff;
+  height: 50px;
+  width: 100%;
+}

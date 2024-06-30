@@ -1,0 +1,136 @@
+.batches {
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #dcdfe4;
+}
+
+.batches__title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #1e4054;
+}
+
+.batches__table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.batches__header {
+  background-color: #f7f8fa;
+  padding: 10px;
+  text-align: left;
+  color: #44546f;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.batches__header:first-child {
+  border-top-left-radius: 10px;
+}
+
+.batches__header:last-child {
+  border-top-right-radius: 10px;
+}
+
+.batches__data {
+  padding: 15px;
+  border-top: 1px solid #fff;
+  color: #31576d;
+  font-family: "Roboto", sans-serif;
+}
+
+.batches__data--status {
+  padding: 5px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.batches__data:first-child {
+  font-weight: 600;
+  color: #375c71;
+}
+
+.batches__data:nth-child(4) {
+  color: #091e42;
+  padding-left: 70px;
+  text-transform: uppercase;
+}
+
+.batches__data:last-child {
+  color: #091e42;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.batches__row:nth-child(even) .batches__data {
+  background-color: #f7f8fa;
+}
+
+.status-finished {
+  color: #16a34a;
+  background-color: #e6f7fe;
+}
+
+.status-failed {
+  color: #d32f2f;
+  background-color: #ffc3b9;
+}
+
+.status-open {
+  color: #ff7b1c;
+  background-color: #ffddb9;
+}
+
+.status-processing {
+  color: #027fb7;
+  background-color: #e6f7fe;
+}
+
+.batches__table th:nth-child(1),
+.batches__table td:nth-child(1) {
+  width: 30%;
+}
+
+.batches__table th:nth-child(2),
+.batches__table td:nth-child(2) {
+  width: 30%;
+}
+
+.batches__table th:nth-child(3),
+.batches__table td:nth-child(3) {
+  width: 20%;
+}
+
+.batches__table th:nth-child(4),
+.batches__table td:nth-child(4) {
+  width: 20%;
+}
+
+.batches__table th:last-child,
+.batches__table td:last-child {
+  width: 20%;
+}
+
+@media (max-width: 1023.9px) {
+  .batches {
+    overflow-x: auto;
+  }
+
+  .batches__header {
+    font-size: 14px;
+  }
+
+  .batches__data {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .batches__data--status {
+    font-size: 14px;
+  }
+}
